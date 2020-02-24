@@ -11,7 +11,7 @@ public class JDAPlaceholderParser extends PlaceholderParser {
 	
 	public JDAPlaceholderParser(JDA bot) {
 		placeholders = new HashMap<>();
-		placeholders.put("totalUsers", String.valueOf(bot.getUsers()));
+		placeholders.put("totalUsers", String.valueOf(bot.getUsers().size()));
 	}
 
 	protected Map<String, String> getPlaceholders() {
