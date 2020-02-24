@@ -58,9 +58,6 @@ public class DiscordBot {
 
 		// Discord bot builder. Accepts bot token as argument
 		JDABuilder jdaBuilder = new JDABuilder(botConfig.getToken());
-
-		// Setup bot builder parameters such as status, etc.
-		jdaBuilder.setActivity(Activity.of(botConfig.getActivityType(), botConfig.getActivity()));
 		
 		// Build discord bot object
 		try {
@@ -69,6 +66,9 @@ public class DiscordBot {
 			LOG.error("Could not login! Please check your bot-token and try again!", ex);
 			System.exit(1);
 		}
+		
+		// Set bot properties from configuration such as status, etc.
+		bot.getPresence().setActivity(Activity.of(botConfig.getActivityType(), botConfig.getActivity()));
 	}
 
 	public static Logger getLog() {
