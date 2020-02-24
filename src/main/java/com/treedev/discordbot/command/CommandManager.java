@@ -3,8 +3,6 @@ package com.treedev.discordbot.command;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.treedev.discordbot.commands.VersionCommand;
-
 public class CommandManager {
 
 	private Map<String, Command> commands;

@@ -1,7 +1,6 @@
-package com.treedev.discordbot.commands;
+package com.treedev.discordbot.command;
 
 import com.treedev.discordbot.DiscordBot;
-import com.treedev.discordbot.command.Command;
 import com.treedev.discordbot.util.MessagingUtil;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
