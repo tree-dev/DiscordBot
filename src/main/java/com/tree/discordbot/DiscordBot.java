@@ -14,6 +14,7 @@ import com.tree.discordbot.config.InvalidConfigException;
 import com.tree.discordbot.config.LoggingConfiguration;
 import com.tree.discordbot.messages.MessageListener;
 import com.tree.discordbot.placeholders.PlaceholderUpdater;
+import com.tree.discordbot.command.CommandManager;
 import com.tree.discordbot.config.BotConfiguration;
 
 import net.dv8tion.jda.api.JDA;
@@ -26,6 +27,7 @@ public class DiscordBot {
 	private static JDA bot;
 
 	private static BotConfiguration botConfig;
+	private static CommandManager commandManager;
 
 	public static void main(String[] args) {
 		// Loads and uses the command line arguments
@@ -73,6 +75,9 @@ public class DiscordBot {
 		
 		// Setup placeholder update thread
 		new PlaceholderUpdater(botConfig.getPlaceholderUpdateInterval()).start();
+		
+		// Setup command manager
+		commandManager = new CommandManager();
 	}
 
 	public static Logger getLog() {
@@ -81,6 +86,10 @@ public class DiscordBot {
 
 	public static BotConfiguration getConfig() {
 		return botConfig;
+	}
+	
+	public static CommandManager getCommandManager() {
+		return commandManager;
 	}
 
 	public static JDA getBot() {
