@@ -35,7 +35,7 @@ public class PlaceholderUpdater extends Thread {
 
 	private void updatePlaceholders() {
 		// Set bot properties from configuration such as status, etc.
-		JDAPlaceholderParser parser = new JDAPlaceholderParser(DiscordBot.getBot());
+		JDAPlaceholderParser parser = new JDAPlaceholderParser();
 		BotConfiguration config = DiscordBot.getConfig();
 		DiscordBot.getBot().getPresence().setActivity(Activity.of(config.getActivityType(), parser.format(config.getActivity())));
 	}

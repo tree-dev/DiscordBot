@@ -3,19 +3,19 @@ package com.tree.discordbot.placeholders;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.dv8tion.jda.api.JDA;
+import com.tree.discordbot.DiscordBot;
 
 public class JDAPlaceholderParser extends PlaceholderParser {
 	
-	private Map<String, String> placeholders;
+	private static final Map<String, IPlaceholderValue> PLACEHOLDERS;
 	
-	public JDAPlaceholderParser(JDA bot) {
-		placeholders = new HashMap<>();
-		placeholders.put("totalUsers", String.valueOf(bot.getUsers().size()));
+	static {
+		PLACEHOLDERS = new HashMap<>();
+		PLACEHOLDERS.put("totalUsers", () -> DiscordBot.getBot().getUsers().size());
 	}
 
-	protected Map<String, String> getPlaceholders() {
-		return placeholders;
+	protected Map<String, IPlaceholderValue> getPlaceholders() {
+		return PLACEHOLDERS;
 	}
 
 }

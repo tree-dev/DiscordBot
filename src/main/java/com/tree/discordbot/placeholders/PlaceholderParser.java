@@ -5,11 +5,15 @@ import java.util.Map.Entry;
 
 public abstract class PlaceholderParser {
 
-	protected abstract Map<String, String> getPlaceholders();
+	protected abstract Map<String, IPlaceholderValue> getPlaceholders();
 	
 	public String format(String text) {
-		for (Entry<String, String> placeholder : getPlaceholders().entrySet()) {
-			text = text.replace(String.format("{%s}", placeholder.getKey()), placeholder.getValue());
+		for (Entry<String, IPlaceholderValue> placeholder : getPlaceholders().entrySet()) {
+			String formattedPlaceholder = String.format("{%s}", String.valueOf(placeholder.getKey()));
+			
+			if (text.contains(formattedPlaceholder)) {
+				text = text.replace(formattedPlaceholder, String.valueOf(placeholder.getValue().getPlaceholder()));
+			}
 		}
 		return text;
 	}
