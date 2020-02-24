@@ -1,4 +1,4 @@
-package com.tree.discordbot.placeholders;
+package com.treedev.discordbot.placeholders;
 
 import java.util.Map;
 import java.util.Map.Entry;

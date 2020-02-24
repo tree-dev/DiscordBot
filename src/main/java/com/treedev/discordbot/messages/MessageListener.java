@@ -1,9 +1,9 @@
-package com.tree.discordbot.messages;
+package com.treedev.discordbot.messages;
 
 import java.util.Arrays;
 
-import com.tree.discordbot.DiscordBot;
-import com.tree.discordbot.command.Command;
+import com.treedev.discordbot.DiscordBot;
+import com.treedev.discordbot.command.Command;
 
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

@@ -1,9 +1,9 @@
-package com.tree.discordbot.placeholders;
+package com.treedev.discordbot.placeholders;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.tree.discordbot.DiscordBot;
+import com.treedev.discordbot.DiscordBot;
 
 public class JDAPlaceholderParser extends PlaceholderParser {
 	

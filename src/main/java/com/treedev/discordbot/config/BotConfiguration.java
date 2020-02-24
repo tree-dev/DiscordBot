@@ -1,4 +1,4 @@
-package com.tree.discordbot.config;
+package com.treedev.discordbot.config;
 
 import java.util.Properties;
 

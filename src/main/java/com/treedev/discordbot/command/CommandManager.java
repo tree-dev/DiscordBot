@@ -1,9 +1,9 @@
-package com.tree.discordbot.command;
+package com.treedev.discordbot.command;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.tree.discordbot.commands.VersionCommand;
+import com.treedev.discordbot.commands.VersionCommand;
 
 public class CommandManager {
 

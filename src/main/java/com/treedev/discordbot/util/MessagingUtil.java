@@ -1,8 +1,8 @@
-package com.tree.discordbot.util;
+package com.treedev.discordbot.util;
 
 import java.awt.Color;
 
-import com.tree.discordbot.DiscordBot;
+import com.treedev.discordbot.DiscordBot;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;

@@ -1,4 +1,4 @@
-package com.tree.discordbot.config;
+package com.treedev.discordbot.config;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import com.tree.discordbot.DiscordBot;
+import com.treedev.discordbot.DiscordBot;
 
 public class ConfigurationLoader {
 

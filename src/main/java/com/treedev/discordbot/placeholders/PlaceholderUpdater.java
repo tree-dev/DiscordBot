@@ -1,7 +1,7 @@
-package com.tree.discordbot.placeholders;
+package com.treedev.discordbot.placeholders;
 
-import com.tree.discordbot.DiscordBot;
-import com.tree.discordbot.config.BotConfiguration;
+import com.treedev.discordbot.DiscordBot;
+import com.treedev.discordbot.config.BotConfiguration;
 
 import net.dv8tion.jda.api.entities.Activity;
 

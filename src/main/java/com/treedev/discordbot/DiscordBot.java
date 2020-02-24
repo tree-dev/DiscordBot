@@ -1,4 +1,4 @@
-package com.tree.discordbot;
+package com.treedev.discordbot;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,13 +9,13 @@ import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tree.discordbot.config.ConfigurationLoader;
-import com.tree.discordbot.config.InvalidConfigException;
-import com.tree.discordbot.config.LoggingConfiguration;
-import com.tree.discordbot.messages.MessageListener;
-import com.tree.discordbot.placeholders.PlaceholderUpdater;
-import com.tree.discordbot.command.CommandManager;
-import com.tree.discordbot.config.BotConfiguration;
+import com.treedev.discordbot.command.CommandManager;
+import com.treedev.discordbot.config.BotConfiguration;
+import com.treedev.discordbot.config.ConfigurationLoader;
+import com.treedev.discordbot.config.InvalidConfigException;
+import com.treedev.discordbot.config.LoggingConfiguration;
+import com.treedev.discordbot.messages.MessageListener;
+import com.treedev.discordbot.placeholders.PlaceholderUpdater;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;

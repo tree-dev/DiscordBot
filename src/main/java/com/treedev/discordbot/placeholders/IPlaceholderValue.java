@@ -1,4 +1,4 @@
-package com.tree.discordbot.placeholders;
+package com.treedev.discordbot.placeholders;
 
 public interface IPlaceholderValue {
 	

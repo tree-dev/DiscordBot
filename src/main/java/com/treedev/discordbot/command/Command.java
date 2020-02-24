@@ -1,4 +1,4 @@
-package com.tree.discordbot.command;
+package com.treedev.discordbot.command;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
