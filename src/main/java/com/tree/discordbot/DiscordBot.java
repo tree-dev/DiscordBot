@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.tree.discordbot.config.ConfigurationLoader;
 import com.tree.discordbot.config.InvalidConfigException;
 import com.tree.discordbot.config.LoggingConfiguration;
+import com.tree.discordbot.messages.MessageListener;
 import com.tree.discordbot.placeholders.PlaceholderUpdater;
 import com.tree.discordbot.config.BotConfiguration;
 
@@ -58,6 +59,9 @@ public class DiscordBot {
 
 		// Discord bot builder. Accepts bot token as argument
 		JDABuilder jdaBuilder = new JDABuilder(botConfig.getToken());
+		
+		// Register bot listeners
+		jdaBuilder.addEventListeners(new MessageListener());
 		
 		// Build discord bot object
 		try {
