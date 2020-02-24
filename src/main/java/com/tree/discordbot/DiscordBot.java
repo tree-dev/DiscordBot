@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.tree.discordbot.config.ConfigurationLoader;
 import com.tree.discordbot.config.InvalidConfigException;
 import com.tree.discordbot.config.LoggingConfiguration;
+import com.tree.discordbot.placeholders.JDAPlaceholderParser;
 import com.tree.discordbot.config.BotConfiguration;
 
 import net.dv8tion.jda.api.JDA;
@@ -68,7 +69,8 @@ public class DiscordBot {
 		}
 		
 		// Set bot properties from configuration such as status, etc.
-		bot.getPresence().setActivity(Activity.of(botConfig.getActivityType(), botConfig.getActivity()));
+		JDAPlaceholderParser parser = new JDAPlaceholderParser(bot);
+		bot.getPresence().setActivity(Activity.of(botConfig.getActivityType(), parser.format(botConfig.getActivity())));
 	}
 
 	public static Logger getLog() {

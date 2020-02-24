@@ -24,7 +24,7 @@ public class BotConfiguration extends Configuration {
 		properties = new Properties();
 		properties.setProperty(BOT_TOKEN_KEY, "default-token");
 		properties.setProperty(ACTIVITY_TYPE_KEY, "DEFAULT");
-		properties.setProperty(ACTIVITY_KEY, "Thanks for using Discord bot!");
+		properties.setProperty(ACTIVITY_KEY, "Discord Bot | {totalUsers} users!");
 	}
 	
 	protected String getConfigPath() {
