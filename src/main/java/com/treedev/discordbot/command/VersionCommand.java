@@ -13,7 +13,7 @@ public class VersionCommand extends Command {
 
 	@Override
 	public void execute(MessageReceivedEvent event, String[] args) {
-		MessagingUtil.sendEmbeddedMessage(event.getChannel(), "Discord Bot Version", "Discord bot " + DiscordBot.VERSION + ". Developed by Tree");
+		MessagingUtil.sendEmbeddedMessage(event.getChannel(), "Discord Bot Version", String.format("Discord bot %s. Developed by Tree", DiscordBot.VERSION));
 	}
 
 }
