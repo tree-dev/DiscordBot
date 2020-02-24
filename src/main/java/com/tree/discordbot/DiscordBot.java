@@ -25,8 +25,6 @@ public class DiscordBot {
 	private static JDA bot;
 
 	private static BotConfiguration botConfig;
-	
-	private static PlaceholderUpdater placeholderUpdater;
 
 	public static void main(String[] args) {
 		// Loads and uses the command line arguments
@@ -70,8 +68,7 @@ public class DiscordBot {
 		}
 		
 		// Setup placeholder update thread
-		placeholderUpdater = new PlaceholderUpdater(botConfig.getPlaceholderUpdateInterval());
-		placeholderUpdater.start();
+		new PlaceholderUpdater(botConfig.getPlaceholderUpdateInterval()).start();
 	}
 
 	public static Logger getLog() {

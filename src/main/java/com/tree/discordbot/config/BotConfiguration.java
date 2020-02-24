@@ -12,6 +12,7 @@ public class BotConfiguration extends Configuration {
 	private static final String ACTIVITY_TYPE_KEY = "activityType";
 	private static final String ACTIVITY_KEY = "activity";
 	private static final String PLACEHOLDER_UPDATE_INTERVAL_KEY = "placeholderUpdateInterval";
+	private static final String PREFIX_KEY = "botPrefix";
 	
 	public Properties getProperties() {
 		return properties;
@@ -27,6 +28,7 @@ public class BotConfiguration extends Configuration {
 		properties.setProperty(ACTIVITY_TYPE_KEY, "DEFAULT");
 		properties.setProperty(ACTIVITY_KEY, "Discord Bot | {totalUsers} users!");
 		properties.setProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY, String.valueOf(5000));
+		properties.setProperty(PREFIX_KEY, "!");
 	}
 	
 	protected String getConfigPath() {
@@ -34,7 +36,7 @@ public class BotConfiguration extends Configuration {
 	}
 	
 	public void validateConfig() throws InvalidConfigException {
-		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY, PLACEHOLDER_UPDATE_INTERVAL_KEY}) {
+		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY, PLACEHOLDER_UPDATE_INTERVAL_KEY, PREFIX_KEY}) {
 			if (!properties.containsKey(key)) {
 				throw new InvalidConfigException(String.format("The configuration key '%s' is missing!", key));
 			}
@@ -69,6 +71,10 @@ public class BotConfiguration extends Configuration {
 	
 	public long getPlaceholderUpdateInterval() {
 		return Long.parseLong(properties.getProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY));
+	}
+	
+	public String getPrefix() {
+		return properties.getProperty(PREFIX_KEY);
 	}
 	
 }
