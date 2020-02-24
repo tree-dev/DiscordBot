@@ -12,12 +12,11 @@ import org.slf4j.LoggerFactory;
 import com.tree.discordbot.config.ConfigurationLoader;
 import com.tree.discordbot.config.InvalidConfigException;
 import com.tree.discordbot.config.LoggingConfiguration;
-import com.tree.discordbot.placeholders.JDAPlaceholderParser;
+import com.tree.discordbot.placeholders.PlaceholderUpdater;
 import com.tree.discordbot.config.BotConfiguration;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Activity;
 
 public class DiscordBot {
 
@@ -26,6 +25,8 @@ public class DiscordBot {
 	private static JDA bot;
 
 	private static BotConfiguration botConfig;
+	
+	private static PlaceholderUpdater placeholderUpdater;
 
 	public static void main(String[] args) {
 		// Loads and uses the command line arguments
@@ -68,9 +69,9 @@ public class DiscordBot {
 			System.exit(1);
 		}
 		
-		// Set bot properties from configuration such as status, etc.
-		JDAPlaceholderParser parser = new JDAPlaceholderParser(bot);
-		bot.getPresence().setActivity(Activity.of(botConfig.getActivityType(), parser.format(botConfig.getActivity())));
+		// Setup placeholder update thread
+		placeholderUpdater = new PlaceholderUpdater(botConfig.getPlaceholderUpdateInterval());
+		placeholderUpdater.start();
 	}
 
 	public static Logger getLog() {

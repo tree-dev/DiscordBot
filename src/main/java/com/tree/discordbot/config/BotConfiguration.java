@@ -11,6 +11,7 @@ public class BotConfiguration extends Configuration {
 	private static final String BOT_TOKEN_KEY = "botToken";
 	private static final String ACTIVITY_TYPE_KEY = "activityType";
 	private static final String ACTIVITY_KEY = "activity";
+	private static final String PLACEHOLDER_UPDATE_INTERVAL_KEY = "placeholderUpdateInterval";
 	
 	public Properties getProperties() {
 		return properties;
@@ -25,6 +26,7 @@ public class BotConfiguration extends Configuration {
 		properties.setProperty(BOT_TOKEN_KEY, "default-token");
 		properties.setProperty(ACTIVITY_TYPE_KEY, "DEFAULT");
 		properties.setProperty(ACTIVITY_KEY, "Discord Bot | {totalUsers} users!");
+		properties.setProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY, String.valueOf(5000));
 	}
 	
 	protected String getConfigPath() {
@@ -32,7 +34,7 @@ public class BotConfiguration extends Configuration {
 	}
 	
 	public void validateConfig() throws InvalidConfigException {
-		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY}) {
+		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY, PLACEHOLDER_UPDATE_INTERVAL_KEY}) {
 			if (!properties.containsKey(key)) {
 				throw new InvalidConfigException(String.format("The configuration key '%s' is missing!", key));
 			}
@@ -44,6 +46,12 @@ public class BotConfiguration extends Configuration {
 		
 		if (getActivityType() == null) {
 			throw new InvalidConfigException("You must specify a valid activity for the bot to be set to!");
+		}
+		
+		try {
+			Long.parseLong(properties.getProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY));
+		} catch (NumberFormatException ex) {
+			throw new InvalidConfigException("The placeholder update interval must be a number!");
 		}
 	}
 	
@@ -57,6 +65,10 @@ public class BotConfiguration extends Configuration {
 	
 	public String getActivity() {
 		return properties.getProperty(ACTIVITY_KEY);
+	}
+	
+	public long getPlaceholderUpdateInterval() {
+		return Long.parseLong(properties.getProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY));
 	}
 	
 }
