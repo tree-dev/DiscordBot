@@ -13,6 +13,7 @@ public class BotConfiguration extends Configuration {
 	private static final String ACTIVITY_KEY = "activity";
 	private static final String PLACEHOLDER_UPDATE_INTERVAL_KEY = "placeholderUpdateInterval";
 	private static final String PREFIX_KEY = "botPrefix";
+	private static final String BOT_COLOR_KEY = "botColor";
 	
 	public Properties getProperties() {
 		return properties;
@@ -29,6 +30,7 @@ public class BotConfiguration extends Configuration {
 		properties.setProperty(ACTIVITY_KEY, "Discord Bot | {totalUsers} users!");
 		properties.setProperty(PLACEHOLDER_UPDATE_INTERVAL_KEY, String.valueOf(5000));
 		properties.setProperty(PREFIX_KEY, "!");
+		properties.setProperty(BOT_COLOR_KEY, "047DE5");
 	}
 	
 	protected String getConfigPath() {
@@ -36,7 +38,7 @@ public class BotConfiguration extends Configuration {
 	}
 	
 	public void validateConfig() throws InvalidConfigException {
-		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY, PLACEHOLDER_UPDATE_INTERVAL_KEY, PREFIX_KEY}) {
+		for (String key : new String[] {BOT_TOKEN_KEY, ACTIVITY_TYPE_KEY, ACTIVITY_KEY, PLACEHOLDER_UPDATE_INTERVAL_KEY, PREFIX_KEY, BOT_COLOR_KEY}) {
 			if (!properties.containsKey(key)) {
 				throw new InvalidConfigException(String.format("The configuration key '%s' is missing!", key));
 			}
@@ -75,6 +77,10 @@ public class BotConfiguration extends Configuration {
 	
 	public String getPrefix() {
 		return properties.getProperty(PREFIX_KEY);
+	}
+	
+	public String getBotColor() {
+		return properties.getProperty(BOT_COLOR_KEY);
 	}
 	
 }

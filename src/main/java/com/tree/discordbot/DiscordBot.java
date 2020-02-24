@@ -23,7 +23,8 @@ import net.dv8tion.jda.api.JDABuilder;
 public class DiscordBot {
 
 	private static final Logger LOG = LoggerFactory.getLogger(DiscordBot.class);
-
+	public static final String VERSION = "v1.0";
+	
 	private static JDA bot;
 
 	private static BotConfiguration botConfig;
@@ -45,7 +46,7 @@ public class DiscordBot {
 		PropertyConfigurator.configure("log4j.properties");
 		
 		// Log startup message
-		LOG.info("Starting Discord Bot v1.0");
+		LOG.info("Starting Discord Bot {}", VERSION);
 		
 		// Setup bot configuration
 		botConfig = new BotConfiguration();
