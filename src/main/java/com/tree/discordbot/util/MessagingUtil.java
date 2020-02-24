@@ -17,10 +17,8 @@ public class MessagingUtil {
 		EmbedBuilder embedBuilder = new EmbedBuilder();
 		
 		embedBuilder.setTitle(title, null);
-		embedBuilder.setColor(new Color(Integer.parseInt(DiscordBot.getConfig().getBotColor())));
-		
+		embedBuilder.setColor(new Color(Integer.parseInt(DiscordBot.getConfig().getBotColor(), 16)));
 		embedBuilder.setDescription(description);
-		embedBuilder.addBlankField(false);
 		
 		channel.sendMessage(embedBuilder.build()).queue();
 	}

@@ -14,7 +14,6 @@ public class VersionCommand extends Command {
 
 	@Override
 	public void execute(MessageReceivedEvent event, String[] args) {
-		event.getChannel().sendMessage("Not implemented!").queue(); 
 		MessagingUtil.sendEmbeddedMessage(event.getChannel(), "Discord Bot Version", "Discord bot " + DiscordBot.VERSION + ". Developed by Tree");
 	}
 
